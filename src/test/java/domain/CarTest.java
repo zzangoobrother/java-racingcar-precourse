@@ -2,7 +2,7 @@ package domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.*;
 
 public class CarTest {
 
@@ -13,5 +13,12 @@ public class CarTest {
                     new Car("abcdef");
                     new Car("");
                 });
+    }
+
+    @Test
+    public void 자동차_전진() {
+        Car car = new Car("hong", 6);
+        car.move();
+        assertThat(car.getForwardNumber()).isEqualTo(7);
     }
 }
