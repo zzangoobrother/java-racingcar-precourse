@@ -19,4 +19,24 @@ public class RacingController {
     private int compareForward(int max, int forwardNumber) {
         return Math.max(max, forwardNumber);
     }
+
+    public int getRandomForward() {
+        return (int) (Math.random() * 9);
+    }
+
+    public StringBuilder getWinnerCarName(List<Car> cars) {
+        StringBuilder sb = new StringBuilder();
+        int max = getMaxForward(cars);
+        for (Car car : cars) {
+            sb = sameMaxForwardCar(max, car, sb);
+        }
+        return sb;
+    }
+
+    private StringBuilder sameMaxForwardCar(int max, Car car, StringBuilder sb) {
+        if (max == car.getForwardNumber()) {
+            return sb.append(car.getName() + ", ");
+        }
+        return sb;
+    }
 }
