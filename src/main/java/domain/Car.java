@@ -12,7 +12,11 @@ public class Car {
     public Car(String name) {
         validateLength(name);
         this.name = name;
-        forwardNumber = 0;
+    }
+
+    public Car(String name, int forwardNumber) {
+        this(name);
+        this.forwardNumber = forwardNumber;
     }
 
     private void validateLength(String name) {
@@ -27,5 +31,9 @@ public class Car {
 
     public int getForwardNumber() {
         return forwardNumber;
+    }
+
+    public void move() {
+        this.forwardNumber++;
     }
 }
